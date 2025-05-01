@@ -7,17 +7,18 @@ using namespace std;
 #define fast ios::sync_with_stdio(false);cin.tie(NULL);
 #define all(x) x.begin(), x.end()
 #define pb push_back
-int d[104];
+
 int main() {
-    int n = 100;
-    for(int i = 1; i <= n; i++) {
-    	for(int j = i; j<= n; j+= i) {
-    		d[j]++;
-    	}
+    int n = 10;
+    int sumOfDivisors = 0;
+    for(int i = 1; i * i <= n; i++) {
+        if(n % i == 0) {
+            sumOfDivisors += i;
+            if(i != n / i) {
+                sumOfDivisors += n / i;
+            }
+        }
     }
-    for(int i = 1; i <= n; i++) {
-    	// cout << d[i] << " ";
-    }
-    cout << d[1]++;
+    cout << sumOfDivisors << endl;
     return 0;
 }
